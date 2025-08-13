@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  softhsm2-mldsa:
+    container_name: softhsm2-mldsa
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./scripts:/root/scripts
+      - ./src:/go/src/github.com/kingcdavid
+    command: "/root/scripts/run.sh"
