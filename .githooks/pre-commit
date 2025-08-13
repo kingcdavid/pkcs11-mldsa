@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Truncate tracked log files before commit
+set -euo pipefail
+
+# Get list of tracked *.log files (staged or unstaged) and any files under logs/ or log/
+log_files=$(git ls-files -z '*.log' 'log/*' 'logs/*' | tr '\0' '\n' | sort -u)
+
+if [[ -n "$log_files" ]]; then
+  echo "Pre-commit: truncating log files..."
+  while IFS= read -r f; do
+    if [[ -f "$f" ]]; then
+      : > "$f"  # truncate
+      git add "$f" || true
+      echo "  truncated $f"
+    fi
+  done <<< "$log_files"
+fi
+
+# Also clear any files explicitly marked as log via .gitattributes (optional future use)
+
+exit 0

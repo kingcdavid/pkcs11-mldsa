@@ -1,103 +1,29 @@
-2025-08-13T09:59:00.760302+00:00 ae3065497de9 rsyslogd: imklog: cannot open kernel log (/proc/kmsg): Permission denied.
-2025-08-13T09:59:05.779849+00:00 ae3065497de9 main: SoftHSM.cpp(479): C_Initialize
-2025-08-13T10:00:20.973054+00:00 ae3065497de9 rsyslogd: imklog: cannot open kernel log (/proc/kmsg): Permission denied.
-2025-08-13T10:00:21.013652+00:00 ae3065497de9 main: SoftHSM.cpp(479): C_Initialize
-2025-08-13T10:01:03.818515+00:00 ae3065497de9 rsyslogd: imklog: cannot open kernel log (/proc/kmsg): Permission denied.
-2025-08-13T10:01:04.062324+00:00 ae3065497de9 main: SoftHSM.cpp(479): C_Initialize
-2025-08-13T10:02:57.845089+00:00 20e2a19cdb5d rsyslogd: imklog: cannot open kernel log (/proc/kmsg): Permission denied.
-2025-08-13T10:03:02.649026+00:00 20e2a19cdb5d main: SoftHSM.cpp(479): C_Initialize
-2025-08-13T10:03:02.649712+00:00 20e2a19cdb5d main: ObjectFile.cpp(68): Opened existing object /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856/token.object
-2025-08-13T10:03:02.649718+00:00 20e2a19cdb5d main: ObjectFile.cpp(331): Object /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856/token.object has changed
-2025-08-13T10:03:02.649731+00:00 20e2a19cdb5d main: OSToken.cpp(65): Opened token /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856
-2025-08-13T10:03:02.649740+00:00 20e2a19cdb5d main: OSToken.cpp(608): Token /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856 has changed
-2025-08-13T10:03:02.649742+00:00 20e2a19cdb5d main: OSToken.cpp(626): Ignored file token.lock
-2025-08-13T10:03:02.649744+00:00 20e2a19cdb5d main: OSToken.cpp(626): Ignored file generation
-2025-08-13T10:03:02.649746+00:00 20e2a19cdb5d main: OSToken.cpp(626): Ignored file token.object
-2025-08-13T10:03:02.649748+00:00 20e2a19cdb5d main: OSToken.cpp(661): 0 objects were added and 0 objects were removed
-2025-08-13T10:03:02.649750+00:00 20e2a19cdb5d main: OSToken.cpp(662): Current directory set contains 0 objects
-2025-08-13T10:03:02.649753+00:00 20e2a19cdb5d main: OSToken.cpp(719): The token now contains 0 objects
-2025-08-13T10:03:02.649784+00:00 20e2a19cdb5d main: OSToken.cpp(593): No re-indexing is required
-2025-08-13T10:03:02.649791+00:00 20e2a19cdb5d main: ObjectFile.cpp(304): The object generation has not been updated
-2025-08-13T10:03:02.649801+00:00 20e2a19cdb5d main: OSToken.cpp(593): No re-indexing is required
-2025-08-13T10:03:02.649807+00:00 20e2a19cdb5d main: ObjectFile.cpp(304): The object generation has not been updated
-2025-08-13T10:03:02.649813+00:00 20e2a19cdb5d main: OSToken.cpp(593): No re-indexing is required
-2025-08-13T10:03:02.649819+00:00 20e2a19cdb5d main: ObjectFile.cpp(304): The object generation has not been updated
-2025-08-13T10:03:02.650558+00:00 20e2a19cdb5d main: SoftHSM.cpp(14398): Evaluating mock for function: C_GetSlotList
-2025-08-13T10:03:02.650562+00:00 20e2a19cdb5d main: SoftHSM.cpp(14398): Evaluating mock for function: C_GetSlotList
-2025-08-13T10:03:02.650565+00:00 20e2a19cdb5d main: SoftHSM.cpp(14398): Evaluating mock for function: C_OpenSession
-2025-08-13T10:03:02.650568+00:00 20e2a19cdb5d main: SoftHSM.cpp(14398): Evaluating mock for function: C_Login
-2025-08-13T10:03:02.650586+00:00 20e2a19cdb5d main: OSToken.cpp(593): No re-indexing is required
-2025-08-13T10:03:02.650593+00:00 20e2a19cdb5d main: ObjectFile.cpp(304): The object generation has not been updated
-2025-08-13T10:03:02.651151+00:00 20e2a19cdb5d main: OSSLEVPSymmetricAlgorithm.cpp(504): Decrypting 48 bytes into buffer of 64 bytes
-2025-08-13T10:03:02.651155+00:00 20e2a19cdb5d main: OSSLEVPSymmetricAlgorithm.cpp(518): Decrypt returned 32 bytes of data
-2025-08-13T10:03:02.651259+00:00 20e2a19cdb5d main: SoftHSM.cpp(14398): Evaluating mock for function: C_GenerateKeyPair
-2025-08-13T10:03:02.651546+00:00 20e2a19cdb5d main: SoftHSM.cpp(14398): Evaluating mock for function: CreateObject
-2025-08-13T10:03:02.651557+00:00 20e2a19cdb5d main: ObjectFile.cpp(74): Created new object /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856/7b76614e-4547-3c24-98d5-245718986e74.object
-2025-08-13T10:03:02.651622+00:00 20e2a19cdb5d main: OSToken.cpp(371): (0x21008EA0) Created new object /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856/7b76614e-4547-3c24-98d5-245718986e74.object (0x2104EC10)
-2025-08-13T10:03:02.652669+00:00 20e2a19cdb5d main: P11Objects.cpp(237): Attribute 0x0 = (ebfeafb0)
-2025-08-13T10:03:02.652672+00:00 20e2a19cdb5d main: P11Objects.cpp(237): Attribute 0x1 = (ebfeaf9c)
-2025-08-13T10:03:02.652674+00:00 20e2a19cdb5d main: P11Objects.cpp(237): Attribute 0x2 = (ebfeaf98)
-2025-08-13T10:03:02.652677+00:00 20e2a19cdb5d main: P11Objects.cpp(237): Attribute 0x100 = (ebfeafb8)
-2025-08-13T10:03:02.652679+00:00 20e2a19cdb5d main: P11Objects.cpp(237): Attribute 0x10a = (21045300)
-2025-08-13T10:03:02.652681+00:00 20e2a19cdb5d main: P11Objects.cpp(237): Attribute 0x180 = (2104d8f0)
-2025-08-13T10:03:02.652685+00:00 20e2a19cdb5d main: P11Objects.cpp(237): Attribute 0x3 = (21045240)
-2025-08-13T10:03:02.652688+00:00 20e2a19cdb5d main: P11Objects.cpp(237): Attribute 0x102 = (21045260)
-2025-08-13T10:03:02.652737+00:00 20e2a19cdb5d main: OSToken.cpp(593): No re-indexing is required
-2025-08-13T10:03:02.652745+00:00 20e2a19cdb5d main: ObjectFile.cpp(304): The object generation has not been updated
-2025-08-13T10:03:02.652786+00:00 20e2a19cdb5d main: SoftHSM.cpp(14398): Evaluating mock for function: CreateObject
-2025-08-13T10:03:02.652794+00:00 20e2a19cdb5d main: ObjectFile.cpp(74): Created new object /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856/6e499dd1-f3e2-9e94-a1b7-8f3d8a4e3f80.object
-2025-08-13T10:03:02.652836+00:00 20e2a19cdb5d main: OSToken.cpp(371): (0x21008EA0) Created new object /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856/6e499dd1-f3e2-9e94-a1b7-8f3d8a4e3f80.object (0x2104F440)
-2025-08-13T10:03:02.654196+00:00 20e2a19cdb5d main: P11Objects.cpp(237): Attribute 0x0 = (ebfeafc0)
-2025-08-13T10:03:02.654200+00:00 20e2a19cdb5d main: P11Objects.cpp(237): Attribute 0x1 = (ebfeaf94)
-2025-08-13T10:03:02.654202+00:00 20e2a19cdb5d main: P11Objects.cpp(237): Attribute 0x2 = (ebfeaf90)
-2025-08-13T10:03:02.654205+00:00 20e2a19cdb5d main: P11Objects.cpp(237): Attribute 0x100 = (ebfeafc8)
-2025-08-13T10:03:02.654206+00:00 20e2a19cdb5d main: P11Objects.cpp(237): Attribute 0x103 = (2104db90)
-2025-08-13T10:03:02.654209+00:00 20e2a19cdb5d main: P11Objects.cpp(237): Attribute 0x108 = (2104dbb0)
-2025-08-13T10:03:02.654211+00:00 20e2a19cdb5d main: P11Objects.cpp(237): Attribute 0x162 = (2104dbd0)
-2025-08-13T10:03:02.654213+00:00 20e2a19cdb5d main: P11Objects.cpp(237): Attribute 0x3 = (2104dbf0)
-2025-08-13T10:03:02.654230+00:00 20e2a19cdb5d main: P11Objects.cpp(237): Attribute 0x102 = (2104dc10)
-2025-08-13T10:03:02.654279+00:00 20e2a19cdb5d main: OSToken.cpp(593): No re-indexing is required
-2025-08-13T10:03:02.654285+00:00 20e2a19cdb5d main: ObjectFile.cpp(304): The object generation has not been updated
-2025-08-13T10:03:02.654367+00:00 20e2a19cdb5d main: SoftHSM.cpp(14398): Evaluating mock for function: C_Logout
-2025-08-13T10:03:02.654371+00:00 20e2a19cdb5d main: SoftHSM.cpp(14398): Evaluating mock for function: C_CloseSession
-2025-08-13T10:03:02.654374+00:00 20e2a19cdb5d main: SoftHSM.cpp(14398): Evaluating mock for function: C_Finalize
-2025-08-13T10:03:48.657315+00:00 20e2a19cdb5d rsyslogd: imklog: cannot open kernel log (/proc/kmsg): Permission denied.
-2025-08-13T10:03:48.873907+00:00 20e2a19cdb5d main: SoftHSM.cpp(479): C_Initialize
-2025-08-13T10:03:48.874466+00:00 20e2a19cdb5d main: ObjectFile.cpp(68): Opened existing object /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856/token.object
-2025-08-13T10:03:48.874472+00:00 20e2a19cdb5d main: ObjectFile.cpp(331): Object /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856/token.object has changed
-2025-08-13T10:03:48.874490+00:00 20e2a19cdb5d main: OSToken.cpp(65): Opened token /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856
-2025-08-13T10:03:48.874514+00:00 20e2a19cdb5d main: OSToken.cpp(608): Token /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856 has changed
-2025-08-13T10:03:48.874517+00:00 20e2a19cdb5d main: OSToken.cpp(626): Ignored file token.lock
-2025-08-13T10:03:48.874521+00:00 20e2a19cdb5d main: OSToken.cpp(626): Ignored file 7b76614e-4547-3c24-98d5-245718986e74.lock
-2025-08-13T10:03:48.874524+00:00 20e2a19cdb5d main: OSToken.cpp(626): Ignored file 6e499dd1-f3e2-9e94-a1b7-8f3d8a4e3f80.lock
-2025-08-13T10:03:48.874527+00:00 20e2a19cdb5d main: OSToken.cpp(626): Ignored file generation
-2025-08-13T10:03:48.874531+00:00 20e2a19cdb5d main: OSToken.cpp(626): Ignored file token.object
-2025-08-13T10:03:48.874536+00:00 20e2a19cdb5d main: OSToken.cpp(661): 2 objects were added and 0 objects were removed
-2025-08-13T10:03:48.874539+00:00 20e2a19cdb5d main: OSToken.cpp(662): Current directory set contains 2 objects
-2025-08-13T10:03:48.874545+00:00 20e2a19cdb5d main: ObjectFile.cpp(68): Opened existing object /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856/6e499dd1-f3e2-9e94-a1b7-8f3d8a4e3f80.object
-2025-08-13T10:03:48.874553+00:00 20e2a19cdb5d main: ObjectFile.cpp(331): Object /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856/6e499dd1-f3e2-9e94-a1b7-8f3d8a4e3f80.object has changed
-2025-08-13T10:03:48.874586+00:00 20e2a19cdb5d main: OSToken.cpp(684): (0x36674EA0) New object 6e499dd1-f3e2-9e94-a1b7-8f3d8a4e3f80.object (0x36676DC0) added
-2025-08-13T10:03:48.874590+00:00 20e2a19cdb5d main: ObjectFile.cpp(68): Opened existing object /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856/7b76614e-4547-3c24-98d5-245718986e74.object
-2025-08-13T10:03:48.874598+00:00 20e2a19cdb5d main: ObjectFile.cpp(331): Object /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856/7b76614e-4547-3c24-98d5-245718986e74.object has changed
-2025-08-13T10:03:48.874624+00:00 20e2a19cdb5d main: OSToken.cpp(684): (0x36674EA0) New object 7b76614e-4547-3c24-98d5-245718986e74.object (0x36677940) added
-2025-08-13T10:03:48.874630+00:00 20e2a19cdb5d main: OSToken.cpp(702): Processing 6e499dd1-f3e2-9e94-a1b7-8f3d8a4e3f80.object (0x36676DC0)
-2025-08-13T10:03:48.874635+00:00 20e2a19cdb5d main: OSToken.cpp(706): Adding object 6e499dd1-f3e2-9e94-a1b7-8f3d8a4e3f80.object
-2025-08-13T10:03:48.874639+00:00 20e2a19cdb5d main: OSToken.cpp(702): Processing 7b76614e-4547-3c24-98d5-245718986e74.object (0x36677940)
-2025-08-13T10:03:48.874643+00:00 20e2a19cdb5d main: OSToken.cpp(706): Adding object 7b76614e-4547-3c24-98d5-245718986e74.object
-2025-08-13T10:03:48.874647+00:00 20e2a19cdb5d main: OSToken.cpp(719): The token now contains 2 objects
-2025-08-13T10:03:48.874682+00:00 20e2a19cdb5d main: OSToken.cpp(593): No re-indexing is required
-2025-08-13T10:03:48.874690+00:00 20e2a19cdb5d main: ObjectFile.cpp(304): The object generation has not been updated
-2025-08-13T10:03:48.874702+00:00 20e2a19cdb5d main: OSToken.cpp(593): No re-indexing is required
-2025-08-13T10:03:48.874713+00:00 20e2a19cdb5d main: ObjectFile.cpp(304): The object generation has not been updated
-2025-08-13T10:03:48.874723+00:00 20e2a19cdb5d main: OSToken.cpp(593): No re-indexing is required
-2025-08-13T10:03:48.874734+00:00 20e2a19cdb5d main: ObjectFile.cpp(304): The object generation has not been updated
-2025-08-13T10:03:48.875488+00:00 20e2a19cdb5d main: SoftHSM.cpp(14398): Evaluating mock for function: C_GetSlotList
-2025-08-13T10:03:48.875493+00:00 20e2a19cdb5d main: SoftHSM.cpp(14398): Evaluating mock for function: C_GetSlotList
-2025-08-13T10:03:48.875497+00:00 20e2a19cdb5d main: SoftHSM.cpp(14398): Evaluating mock for function: C_OpenSession
-2025-08-13T10:03:48.875502+00:00 20e2a19cdb5d main: SoftHSM.cpp(14398): Evaluating mock for function: C_Login
-2025-08-13T10:03:48.875522+00:00 20e2a19cdb5d main: OSToken.cpp(593): No re-indexing is required
-2025-08-13T10:03:48.875532+00:00 20e2a19cdb5d main: ObjectFile.cpp(304): The object generation has not been updated
-2025-08-13T10:03:48.876098+00:00 20e2a19cdb5d main: OSSLEVPSymmetricAlgorithm.cpp(504): Decrypting 48 bytes into buffer of 64 bytes
-2025-08-13T10:03:48.876104+00:00 20e2a19cdb5d main: OSSLEVPSymmetricAlgorithm.cpp(518): Decrypt returned 32 bytes of data
-2025-08-13T10:03:48.876210+00:00 20e2a19cdb5d main: SoftHSM.cpp(14398): Evaluating mock for function: C_GenerateKeyPair
-2025-08-13T10:03:48.876213+00:00 20e2a19cdb5d main: SoftHSM.cpp(10629): Missing parameter(s) in pPublicKeyTemplate
+2025-08-13T10:20:23.294855+00:00 90979f1a2be9 rsyslogd: imklog: cannot open kernel log (/proc/kmsg): Permission denied.
+2025-08-13T10:20:28.390138+00:00 90979f1a2be9 main: SoftHSM.cpp(479): C_Initialize
+2025-08-13T10:20:28.390776+00:00 90979f1a2be9 main: ObjectFile.cpp(68): Opened existing object /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856/token.object
+2025-08-13T10:20:28.390784+00:00 90979f1a2be9 main: ObjectFile.cpp(331): Object /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856/token.object has changed
+2025-08-13T10:20:28.390803+00:00 90979f1a2be9 main: OSToken.cpp(65): Opened token /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856
+2025-08-13T10:20:28.390818+00:00 90979f1a2be9 main: OSToken.cpp(608): Token /usr/local/var/lib/softhsm/tokens//31eeb968-b298-ac2f-ffad-e234ef690856 has changed
+2025-08-13T10:20:28.390822+00:00 90979f1a2be9 main: OSToken.cpp(626): Ignored file token.lock
+2025-08-13T10:20:28.390825+00:00 90979f1a2be9 main: OSToken.cpp(626): Ignored file generation
+2025-08-13T10:20:28.390827+00:00 90979f1a2be9 main: OSToken.cpp(626): Ignored file token.object
+2025-08-13T10:20:28.390831+00:00 90979f1a2be9 main: OSToken.cpp(661): 0 objects were added and 0 objects were removed
+2025-08-13T10:20:28.390834+00:00 90979f1a2be9 main: OSToken.cpp(662): Current directory set contains 0 objects
+2025-08-13T10:20:28.390837+00:00 90979f1a2be9 main: OSToken.cpp(719): The token now contains 0 objects
+2025-08-13T10:20:28.390873+00:00 90979f1a2be9 main: OSToken.cpp(593): No re-indexing is required
+2025-08-13T10:20:28.390884+00:00 90979f1a2be9 main: ObjectFile.cpp(304): The object generation has not been updated
+2025-08-13T10:20:28.390897+00:00 90979f1a2be9 main: OSToken.cpp(593): No re-indexing is required
+2025-08-13T10:20:28.390907+00:00 90979f1a2be9 main: ObjectFile.cpp(304): The object generation has not been updated
+2025-08-13T10:20:28.390918+00:00 90979f1a2be9 main: OSToken.cpp(593): No re-indexing is required
+2025-08-13T10:20:28.390929+00:00 90979f1a2be9 main: ObjectFile.cpp(304): The object generation has not been updated
+2025-08-13T10:20:28.391662+00:00 90979f1a2be9 main: SoftHSM.cpp(14398): Evaluating mock for function: C_GetSlotList
+2025-08-13T10:20:28.391669+00:00 90979f1a2be9 main: SoftHSM.cpp(14398): Evaluating mock for function: C_GetSlotList
+2025-08-13T10:20:28.391673+00:00 90979f1a2be9 main: SoftHSM.cpp(14398): Evaluating mock for function: C_OpenSession
+2025-08-13T10:20:28.391678+00:00 90979f1a2be9 main: SoftHSM.cpp(14398): Evaluating mock for function: C_Login
+2025-08-13T10:20:28.391695+00:00 90979f1a2be9 main: OSToken.cpp(593): No re-indexing is required
+2025-08-13T10:20:28.391705+00:00 90979f1a2be9 main: ObjectFile.cpp(304): The object generation has not been updated
+2025-08-13T10:20:28.392264+00:00 90979f1a2be9 main: OSSLEVPSymmetricAlgorithm.cpp(504): Decrypting 48 bytes into buffer of 64 bytes
+2025-08-13T10:20:28.392270+00:00 90979f1a2be9 main: OSSLEVPSymmetricAlgorithm.cpp(518): Decrypt returned 32 bytes of data
+2025-08-13T10:20:28.392375+00:00 90979f1a2be9 main: SoftHSM.cpp(14398): Evaluating mock for function: C_Logout
+2025-08-13T10:20:28.392381+00:00 90979f1a2be9 main: SoftHSM.cpp(14398): Evaluating mock for function: C_CloseSession
+2025-08-13T10:20:28.392387+00:00 90979f1a2be9 main: SoftHSM.cpp(14398): Evaluating mock for function: C_Finalize

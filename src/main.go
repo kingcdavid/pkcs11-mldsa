@@ -69,7 +69,7 @@ func main() {
 
 	pubKey, privKey, err := p.GenerateKeyPair(
 		session,
-		[]*pkcs11.Mechanism{pkcs11.NewMechanism(pkcs11.CKM_ML_DSA_KEY_PAIR_GEN, nil)},
+		[]*pkcs11.Mechanism{pkcs11.NewMechanism(pkcs11.CKM_ML_DSA_KEY_PAIR_GEN, pkcs11.CKP_ML_DSA_65)},
 		pubTemplate,
 		privTemplate,
 	)
