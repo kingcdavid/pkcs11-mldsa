@@ -1,5 +1,4 @@
 #!/bin/sh
 
-while true; do
-    sleep 60
-done
+cd /go/src/github.com/kingcdavid
+go run main.go
