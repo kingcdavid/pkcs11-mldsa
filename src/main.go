@@ -41,40 +41,41 @@ func main() {
 	}
 	defer p.Logout(session)
 
-	// ML-DSA key pair templates (verify-only public, sign-only private)
+	// EC P-384: OID 1.3.132.0.34 encoded as ASN.1 DER
+	ecParamsP384 := []byte{0x06, 0x05, 0x2B, 0x81, 0x04, 0x00, 0x22}
+
+	// EC key pair templates (verify-only public, sign-only private)
 	pubTemplate := []*pkcs11.Attribute{
 		pkcs11.NewAttribute(pkcs11.CKA_CLASS, pkcs11.CKO_PUBLIC_KEY),
-		// Required by many tokens
 		pkcs11.NewAttribute(pkcs11.CKA_KEY_TYPE, pkcs11.CKK_ML_DSA),
 		pkcs11.NewAttribute(pkcs11.CKA_TOKEN, true),
 		pkcs11.NewAttribute(pkcs11.CKA_PRIVATE, false),
 		pkcs11.NewAttribute(pkcs11.CKA_VERIFY, true),
-		// Optional but recommended identifiers
+		pkcs11.NewAttribute(pkcs11.CKA_EC_PARAMS, ecParamsP384),
 		pkcs11.NewAttribute(pkcs11.CKA_LABEL, "mldsa-pub"),
 		pkcs11.NewAttribute(pkcs11.CKA_ID, []byte{0x01}),
 	}
 	privTemplate := []*pkcs11.Attribute{
 		pkcs11.NewAttribute(pkcs11.CKA_CLASS, pkcs11.CKO_PRIVATE_KEY),
-		// Keep type consistent on the private key as well
 		pkcs11.NewAttribute(pkcs11.CKA_KEY_TYPE, pkcs11.CKK_ML_DSA),
 		pkcs11.NewAttribute(pkcs11.CKA_TOKEN, true),
 		pkcs11.NewAttribute(pkcs11.CKA_PRIVATE, true),
 		pkcs11.NewAttribute(pkcs11.CKA_SENSITIVE, true),
 		pkcs11.NewAttribute(pkcs11.CKA_SIGN, true),
-		// Common hardening
 		pkcs11.NewAttribute(pkcs11.CKA_EXTRACTABLE, false),
 		pkcs11.NewAttribute(pkcs11.CKA_LABEL, "mldsa-priv"),
 		pkcs11.NewAttribute(pkcs11.CKA_ID, []byte{0x01}),
 	}
 
-	// Provide ML-DSA parameter set via mechanism parameter (choose 44, 65, or 87)
-	mldsaparams := uint(65)
-	pubKey, privKey, err := p.GenerateKeyPair(session,
-		[]*pkcs11.Mechanism{pkcs11.NewMechanism(pkcs11.CKM_ML_DSA_KEY_PAIR_GEN, mldsaparams)},
-		pubTemplate, privTemplate)
+	pubKey, privKey, err := p.GenerateKeyPair(
+		session,
+		[]*pkcs11.Mechanism{pkcs11.NewMechanism(pkcs11.CKM_ML_DSA_KEY_PAIR_GEN, nil)},
+		pubTemplate,
+		privTemplate,
+	)
 	if err != nil {
 		log.Fatalf("GenerateKeyPair error: %v", err)
 	}
 
-	fmt.Printf("ML-DSA key pair created: pub=%v priv=%v\n", pubKey, privKey)
+	fmt.Printf("EC P-384 key pair created: pub=%v priv=%v\n", pubKey, privKey)
 }

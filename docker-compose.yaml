@@ -9,4 +9,7 @@ services:
     volumes:
       - ./scripts:/root/scripts
       - ./src:/go/src/github.com/kingcdavid
+      - ./softhsm2.conf:/usr/local/etc/softhsm2.conf
+      - ./logs/syslog:/var/log/syslog
+      - ./logs/user.log:/var/log/user.log
     command: "/root/scripts/run.sh"
