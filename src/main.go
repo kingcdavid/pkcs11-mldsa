@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/pem"
 	"fmt"
 	"log"
 
@@ -41,23 +42,20 @@ func main() {
 	}
 	defer p.Logout(session)
 
-	// EC P-384: OID 1.3.132.0.34 encoded as ASN.1 DER
-	ecParamsP384 := []byte{0x06, 0x05, 0x2B, 0x81, 0x04, 0x00, 0x22}
-
 	// EC key pair templates (verify-only public, sign-only private)
 	pubTemplate := []*pkcs11.Attribute{
 		pkcs11.NewAttribute(pkcs11.CKA_CLASS, pkcs11.CKO_PUBLIC_KEY),
-		pkcs11.NewAttribute(pkcs11.CKA_KEY_TYPE, pkcs11.CKK_ML_DSA),
+		pkcs11.NewAttribute(pkcs11.CKA_PARAMETER_SET, pkcs11.CKP_ML_DSA_65),
+		//pkcs11.NewAttribute(pkcs11.CKA_KEY_TYPE, pkcs11.CKK_ML_DSA),
 		pkcs11.NewAttribute(pkcs11.CKA_TOKEN, true),
 		pkcs11.NewAttribute(pkcs11.CKA_PRIVATE, false),
 		pkcs11.NewAttribute(pkcs11.CKA_VERIFY, true),
-		pkcs11.NewAttribute(pkcs11.CKA_EC_PARAMS, ecParamsP384),
 		pkcs11.NewAttribute(pkcs11.CKA_LABEL, "mldsa-pub"),
 		pkcs11.NewAttribute(pkcs11.CKA_ID, []byte{0x01}),
 	}
 	privTemplate := []*pkcs11.Attribute{
 		pkcs11.NewAttribute(pkcs11.CKA_CLASS, pkcs11.CKO_PRIVATE_KEY),
-		pkcs11.NewAttribute(pkcs11.CKA_KEY_TYPE, pkcs11.CKK_ML_DSA),
+		//pkcs11.NewAttribute(pkcs11.CKA_KEY_TYPE, pkcs11.CKK_ML_DSA),
 		pkcs11.NewAttribute(pkcs11.CKA_TOKEN, true),
 		pkcs11.NewAttribute(pkcs11.CKA_PRIVATE, true),
 		pkcs11.NewAttribute(pkcs11.CKA_SENSITIVE, true),
@@ -67,9 +65,17 @@ func main() {
 		pkcs11.NewAttribute(pkcs11.CKA_ID, []byte{0x01}),
 	}
 
+	fmt.Print("Generating mech...\n")
+
+	mech := pkcs11.NewMechanism(pkcs11.CKM_ML_DSA_KEY_PAIR_GEN, nil)
+
+	fmt.Printf("Using mechanism: %+v\n", mech)
+
+	fmt.Print("Generating key pair...\n")
+
 	pubKey, privKey, err := p.GenerateKeyPair(
 		session,
-		[]*pkcs11.Mechanism{pkcs11.NewMechanism(pkcs11.CKM_ML_DSA_KEY_PAIR_GEN, pkcs11.CKP_ML_DSA_65)},
+		[]*pkcs11.Mechanism{mech},
 		pubTemplate,
 		privTemplate,
 	)
@@ -77,5 +83,30 @@ func main() {
 		log.Fatalf("GenerateKeyPair error: %v", err)
 	}
 
-	fmt.Printf("EC P-384 key pair created: pub=%v priv=%v\n", pubKey, privKey)
+	fmt.Printf("key pair created: pub=%v priv=%v\n", pubKey, privKey)
+
+	attrs, err := p.GetAttributeValue(session, pubKey, []*pkcs11.Attribute{
+		pkcs11.NewAttribute(pkcs11.CKA_ID, nil),
+		pkcs11.NewAttribute(pkcs11.CKA_LABEL, nil),
+		pkcs11.NewAttribute(pkcs11.CKA_VALUE, nil),
+	})
+
+	if err != nil {
+		log.Fatalf("GetAttributeValue error: %v", err)
+	}
+	if len(attrs) == 0 || attrs[0] == nil || len(attrs[0].Value) == 0 {
+		log.Fatalf("Attributes not available")
+	}
+
+	log.Printf("CKA_ID: %x", attrs[0].Value)
+	log.Printf("CKA_LABEL: %s", attrs[1].Value)
+
+	pointDER := attrs[2].Value
+
+	var pemBytes = pem.EncodeToMemory(&pem.Block{
+		Type:  "PUBLIC KEY",
+		Bytes: pointDER,
+	})
+
+	log.Printf("CKA_VALUE (PEM format):\n%s", pemBytes)
 }
