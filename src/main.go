@@ -1,6 +1,7 @@
 package main
 
 import (
+	"crypto/rand"
 	"encoding/pem"
 	"fmt"
 	"log"
@@ -42,6 +43,12 @@ func main() {
 	}
 	defer p.Logout(session)
 
+	ckaID := make([]byte, 16)
+	_, err = rand.Read(ckaID)
+	if err != nil {
+		log.Fatalf("Failed to generate random CKA_ID: %v", err)
+	}
+
 	// EC key pair templates (verify-only public, sign-only private)
 	pubTemplate := []*pkcs11.Attribute{
 		pkcs11.NewAttribute(pkcs11.CKA_CLASS, pkcs11.CKO_PUBLIC_KEY),
@@ -51,7 +58,7 @@ func main() {
 		pkcs11.NewAttribute(pkcs11.CKA_PRIVATE, false),
 		pkcs11.NewAttribute(pkcs11.CKA_VERIFY, true),
 		pkcs11.NewAttribute(pkcs11.CKA_LABEL, "mldsa-pub"),
-		pkcs11.NewAttribute(pkcs11.CKA_ID, []byte{0x01}),
+		pkcs11.NewAttribute(pkcs11.CKA_ID, ckaID),
 	}
 	privTemplate := []*pkcs11.Attribute{
 		pkcs11.NewAttribute(pkcs11.CKA_CLASS, pkcs11.CKO_PRIVATE_KEY),
@@ -62,7 +69,7 @@ func main() {
 		pkcs11.NewAttribute(pkcs11.CKA_SIGN, true),
 		pkcs11.NewAttribute(pkcs11.CKA_EXTRACTABLE, false),
 		pkcs11.NewAttribute(pkcs11.CKA_LABEL, "mldsa-priv"),
-		pkcs11.NewAttribute(pkcs11.CKA_ID, []byte{0x01}),
+		pkcs11.NewAttribute(pkcs11.CKA_ID, ckaID),
 	}
 
 	fmt.Print("Generating mech...\n")
@@ -109,4 +116,32 @@ func main() {
 	})
 
 	log.Printf("CKA_VALUE (PEM format):\n%s", pemBytes)
+
+	digest := []byte("Hello, PKCS#11 ML DSA!")
+
+	// Sign the digest using the private key
+	err = p.SignInit(session, []*pkcs11.Mechanism{pkcs11.NewMechanism(pkcs11.CKM_ML_DSA, nil)}, privKey)
+	if err != nil {
+		log.Fatalf("SignInit error: %v", err)
+	}
+
+	signature, err := p.Sign(session, digest)
+	if err != nil {
+		log.Fatalf("Sign error: %v", err)
+	}
+
+	log.Printf("Signature (hex): %x", signature)
+
+	// Verify the signature using the public key
+	err = p.VerifyInit(session, []*pkcs11.Mechanism{pkcs11.NewMechanism(pkcs11.CKM_ML_DSA, nil)}, pubKey)
+	if err != nil {
+		log.Fatalf("VerifyInit error: %v", err)
+	}
+
+	err = p.Verify(session, digest, signature)
+	if err != nil {
+		log.Fatalf("Signature verification failed: %v", err)
+	} else {
+		log.Printf("Signature verification succeeded.")
+	}
 }
