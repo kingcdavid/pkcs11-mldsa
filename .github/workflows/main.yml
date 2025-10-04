@@ -1,0 +1,19 @@
+name: Docker Compose Action
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - name: Run docker compose
+        uses: hoverkraft-tech/compose-action@b716db5b717cb9b81e391fe638e5aceaa2299e43 # v2.4.0
+        with:
+          compose-file: "./docker-compose.yml"
+
+      - name: Execute tests in the running services
+        run: |
+          docker compose exec softhsm2-mldsa
