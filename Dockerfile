@@ -1,7 +1,7 @@
 from debian:trixie
 
 
-ARG SOFTHSM2_VERSION=mldsa
+ARG SOFTHSM2_VERSION=ml-dsa-pr
 
 ENV SOFTHSM2_VERSION=${SOFTHSM2_VERSION}
 

@@ -97,6 +97,17 @@ func main() {
 		pkcs11.NewAttribute(pkcs11.CKA_LABEL, nil),
 		pkcs11.NewAttribute(pkcs11.CKA_VALUE, nil),
 	})
+	if err != nil {
+		log.Fatalf("GetAttributeValue error: %v", err)
+	}
+	if len(attrs) == 0 || attrs[0] == nil || len(attrs[0].Value) == 0 {
+		log.Fatalf("Attributes not available")
+	}
+
+	attrspub, err := p.GetAttributeValue(session, pubKey, []*pkcs11.Attribute{
+		pkcs11.NewAttribute(pkcs11.CKP_ML_DSA_65, nil),
+	})
+	log.Printf("CKP_ML_DSA_65: %x", attrspub[0].Value)
 
 	if err != nil {
 		log.Fatalf("GetAttributeValue error: %v", err)
@@ -104,6 +115,8 @@ func main() {
 	if len(attrs) == 0 || attrs[0] == nil || len(attrs[0].Value) == 0 {
 		log.Fatalf("Attributes not available")
 	}
+
+	log.Printf("Public Key Attributes: %+v", attrspub)
 
 	log.Printf("CKA_ID: %x", attrs[0].Value)
 	log.Printf("CKA_LABEL: %s", attrs[1].Value)
