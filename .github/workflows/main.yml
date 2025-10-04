@@ -16,4 +16,4 @@ jobs:
 
       - name: Execute tests in the running services
         run: |
-          docker compose exec softhsm2-mldsa
+          docker compose run softhsm2-mldsa
